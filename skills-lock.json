@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "design-md-generator": {
+      "source": "hukusuke1007/agent-skills",
+      "sourceType": "github",
+      "skillPath": "design-md-generator/SKILL.md",
+      "computedHash": "f7aeaab1ca8cb1460ade1de82d9c1ed1d0a2b05465c3c323a983a0ce99dd98f1"
+    }
+  }
+}
