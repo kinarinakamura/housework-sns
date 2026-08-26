@@ -18,6 +18,7 @@ export async function startSession(formData: FormData) {
 
   const { data, error } = await supabase.auth.signInAnonymously();
   if (error || !data.user) {
+    console.error("[startSession] signInAnonymously error:", error);
     throw new Error("セッションの開始に失敗しました");
   }
 
