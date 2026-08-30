@@ -56,14 +56,12 @@ export async function updateProfile(formData: FormData) {
     AVATAR_EMOJIS,
     AVATAR_EMOJIS[0],
   );
-  const autoStampEnabled = formData.get("autoStampEnabled") === "on";
 
   const { error } = await supabase
     .from("profiles")
     .update({
       nickname,
       avatar_emoji: avatarEmoji,
-      auto_stamp_enabled: autoStampEnabled,
     })
     .eq("id", user.id);
 
@@ -118,7 +116,6 @@ export async function toggleReaction(postId: string, emoji: string) {
     .eq("post_id", postId)
     .eq("user_id", user.id)
     .eq("emoji", emoji)
-    .eq("is_system", false)
     .maybeSingle();
 
   if (existing) {
@@ -128,7 +125,6 @@ export async function toggleReaction(postId: string, emoji: string) {
       post_id: postId,
       user_id: user.id,
       emoji,
-      is_system: false,
     });
   }
 

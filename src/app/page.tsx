@@ -22,7 +22,7 @@ export default async function Home({
 
   const { data: profile } = await supabase
     .from("profiles")
-    .select("id, nickname, avatar_emoji, auto_stamp_enabled")
+    .select("id, nickname, avatar_emoji")
     .eq("id", user.id)
     .single();
 
@@ -37,9 +37,9 @@ export default async function Home({
     .from("posts")
     .select(
       `id, category, body, comments_enabled, created_at,
-       profiles ( id, nickname, avatar_emoji, auto_stamp_enabled ),
-       reactions ( emoji, user_id, is_system ),
-       comments ( id, body, created_at, profiles ( id, nickname, avatar_emoji, auto_stamp_enabled ) )`,
+       profiles ( id, nickname, avatar_emoji ),
+       reactions ( emoji, user_id ),
+       comments ( id, body, created_at, profiles ( id, nickname, avatar_emoji ) )`,
     )
     .order("created_at", { ascending: false })
     .limit(50);

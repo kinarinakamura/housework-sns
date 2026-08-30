@@ -15,7 +15,7 @@ export function PostCard({
   const myEmojis = new Set<string>();
   for (const r of post.reactions) {
     counts[r.emoji] = (counts[r.emoji] ?? 0) + 1;
-    if (!r.is_system && r.user_id === currentUserId) myEmojis.add(r.emoji);
+    if (r.user_id === currentUserId) myEmojis.add(r.emoji);
   }
 
   const nickname = post.profiles?.nickname ?? "ゲスト";

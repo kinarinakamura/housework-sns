@@ -29,22 +29,6 @@ export function SettingsForm({ profile }: { profile: Profile }) {
         <AvatarPicker defaultValue={profile.avatar_emoji} />
       </div>
 
-      <label className="flex items-start gap-2 text-sm text-ink-soft">
-        <input
-          type="checkbox"
-          name="autoStampEnabled"
-          defaultChecked={profile.auto_stamp_enabled}
-          className="mt-0.5 h-4 w-4 rounded border-border text-brand focus:ring-brand"
-        />
-        <span>
-          投稿すると自動でスタンプ(🌿)を受け取る
-          <br />
-          <span className="text-xs text-ink-faint">
-            誰にも反応されない投稿を減らすための機能です
-          </span>
-        </span>
-      </label>
-
       <button
         type="submit"
         className="w-full rounded-full bg-brand px-5 py-3 text-base font-bold text-white transition-colors hover:bg-brand-dark sm:w-auto"
