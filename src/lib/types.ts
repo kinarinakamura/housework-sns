@@ -3,10 +3,10 @@ export const CATEGORIES = ["掃除", "洗濯", "料理", "片付け", "その他
 export type Category = (typeof CATEGORIES)[number];
 
 export const REACTIONS = [
-  { emoji: "👏", label: "すごい！" },
-  { emoji: "🌿", label: "おつかれ" },
+  { emoji: "👏", label: "おつかれ" },
+  { emoji: "❤️", label: "ステキ！" },
+  { emoji: "✨", label: "すごい！" },
   { emoji: "😌", label: "わかる" },
-  { emoji: "💛", label: "今日はいいよ" },
 ] as const;
 
 export type ReactionEmoji = (typeof REACTIONS)[number]["emoji"];
