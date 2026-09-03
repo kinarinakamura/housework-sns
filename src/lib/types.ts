@@ -3,15 +3,13 @@ export const CATEGORIES = ["掃除", "洗濯", "料理", "片付け", "その他
 export type Category = (typeof CATEGORIES)[number];
 
 export const REACTIONS = [
-  { emoji: "👏", label: "すごい！" },
-  { emoji: "🌿", label: "おつかれ" },
+  { emoji: "👏", label: "おつかれ" },
+  { emoji: "❤️", label: "ステキ！" },
+  { emoji: "✨", label: "すごい！" },
   { emoji: "😌", label: "わかる" },
-  { emoji: "💛", label: "今日はいいよ" },
 ] as const;
 
 export type ReactionEmoji = (typeof REACTIONS)[number]["emoji"];
-
-export const SYSTEM_STAMP_EMOJI = "🌿";
 
 export const AVATAR_EMOJIS = [
   "🏠",
@@ -32,7 +30,6 @@ export type Profile = {
   id: string;
   nickname: string;
   avatar_emoji: string;
-  auto_stamp_enabled: boolean;
 };
 
 export type PostWithRelations = {
@@ -42,7 +39,7 @@ export type PostWithRelations = {
   comments_enabled: boolean;
   created_at: string;
   profiles: Profile | null;
-  reactions: { emoji: string; user_id: string | null; is_system: boolean }[];
+  reactions: { emoji: string; user_id: string }[];
   comments: CommentWithProfile[];
 };
 

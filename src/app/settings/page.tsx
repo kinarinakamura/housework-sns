@@ -14,7 +14,7 @@ export default async function SettingsPage() {
 
   const { data: profile } = await supabase
     .from("profiles")
-    .select("id, nickname, avatar_emoji, auto_stamp_enabled")
+    .select("id, nickname, avatar_emoji")
     .eq("id", user.id)
     .single();
 
