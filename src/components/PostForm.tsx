@@ -32,7 +32,6 @@ export function PostForm() {
 
       <textarea
         name="body"
-        required
         maxLength={500}
         rows={3}
         placeholder={copy.placeholder}
