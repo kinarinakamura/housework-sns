@@ -15,7 +15,7 @@ create table if not exists public.posts (
   id uuid primary key default gen_random_uuid(),
   user_id uuid not null references public.profiles (id) on delete cascade,
   category text not null,
-  body text not null check (char_length(body) between 1 and 500),
+  body text not null default '' check (char_length(body) <= 500),
   comments_enabled boolean not null default true,
   created_at timestamptz not null default now()
 );

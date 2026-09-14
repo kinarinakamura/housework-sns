@@ -80,8 +80,8 @@ export async function createPost(formData: FormData) {
 
   const category = pickValid(formData.get("category"), CATEGORIES, "その他");
   const body = String(formData.get("body") ?? "").trim();
-  if (body.length < 1 || body.length > 500) {
-    throw new Error("投稿内容は1〜500文字で入力してください");
+  if (body.length > 500) {
+    throw new Error("投稿内容は500文字以内で入力してください");
   }
   const commentsEnabled = formData.get("commentsEnabled") === "on";
 

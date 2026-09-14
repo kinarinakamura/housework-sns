@@ -38,9 +38,11 @@ export function PostCard({
         </div>
       </header>
 
-      <p className="mt-3 whitespace-pre-wrap text-[15px] leading-relaxed text-ink">
-        {post.body}
-      </p>
+      {post.body && (
+        <p className="mt-3 whitespace-pre-wrap text-[15px] leading-relaxed text-ink">
+          {post.body}
+        </p>
+      )}
 
       <div className="mt-4">
         <ReactionBar postId={post.id} counts={counts} myEmojis={myEmojis} />
