@@ -18,13 +18,12 @@ export function SettingsForm({ profile }: { profile: Profile }) {
           name="nickname"
           maxLength={20}
           defaultValue={profile.nickname}
-          className="w-full rounded-lg border border-border bg-white px-3 py-2 text-[15px] text-ink focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand"
+          className="w-full rounded-lg border border-border bg-white px-3 py-2 text-[15px] text-ink transition-colors focus:border-brand focus:outline-none"
         />
       </div>
 
       <div>
         <span className="mb-1 block text-sm font-medium text-ink-soft">
-          アバター
         </span>
         <AvatarPicker defaultValue={profile.avatar_emoji} />
       </div>

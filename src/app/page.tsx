@@ -52,18 +52,20 @@ export default async function Home({
   const postList = (posts ?? []) as unknown as PostWithRelations[];
 
   return (
-    <div className="mx-auto max-w-2xl space-y-6 px-4 py-8">
+    <div className="mx-auto flex max-w-[660px] flex-col gap-[22px] px-4 py-10 pb-24">
       <Header profile={profile as Profile} />
       <PostForm />
       <CategoryTabs active={activeCategory} />
-      <div className="space-y-4">
+      <div className="flex flex-col gap-4">
         {postList.map((post) => (
           <PostCard key={post.id} post={post} currentUserId={user.id} />
         ))}
         {postList.length === 0 && (
-          <p className="py-12 text-center text-sm text-ink-faint">
-            まだ投稿がありません。最初の投稿をしてみましょう。
-          </p>
+          <div className="rounded-2xl border border-dashed border-[#e7ddd0] bg-white px-6 py-11 text-center text-sm leading-[1.9] text-ink-soft">
+            このカテゴリの投稿はまだありません。
+            <br />
+            最初のひとことを書いてみませんか。
+          </div>
         )}
       </div>
     </div>

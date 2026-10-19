@@ -1,21 +1,21 @@
 import Link from "next/link";
+import { Avatar } from "@/components/Avatar";
 import type { Profile } from "@/lib/types";
 
 export function Header({ profile }: { profile: Profile }) {
   return (
-    <header className="flex items-center justify-between gap-3">
-      <div>
-        <h1 className="text-xl font-black tracking-tight text-ink">
-          しゅふよう
+    <header className="flex items-start justify-between gap-4">
+      <div className="flex flex-col gap-1">
+        <h1 className="font-heading text-[27px] leading-tight font-bold tracking-[0.02em] text-ink">
+          Ottsu
         </h1>
-        <p className="text-xs text-ink-soft">かしこまらない、主婦用SNS</p>
       </div>
       <Link
         href="/settings"
-        className="flex flex-none items-center gap-2 rounded-full border border-border bg-white px-3 py-1.5 text-sm text-ink transition-colors hover:border-border-muted"
+        className="flex flex-none items-center gap-2.5 rounded-2xl border border-[#ebe2d6] bg-white py-2 pr-4 pl-3 text-sm no-underline shadow-[0_1px_2px_rgba(90,70,45,0.04)] transition-colors hover:border-[#e0cfb8] hover:no-underline"
       >
-        <span className="text-lg">{profile.avatar_emoji}</span>
-        <span className="max-w-[8rem] truncate font-medium">
+        <Avatar value={profile.avatar_emoji} className="h-[26px] w-[26px] text-base" />
+        <span className="max-w-[8rem] truncate font-medium text-ink">
           {profile.nickname}
         </span>
       </Link>

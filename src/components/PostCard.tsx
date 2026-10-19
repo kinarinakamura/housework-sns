@@ -1,3 +1,4 @@
+import { Avatar } from "@/components/Avatar";
 import { CategoryBadge } from "@/components/CategoryBadge";
 import { ReactionBar } from "@/components/ReactionBar";
 import { CommentForm } from "@/components/CommentForm";
@@ -22,59 +23,60 @@ export function PostCard({
   const avatar = post.profiles?.avatar_emoji ?? "🏠";
 
   return (
-    <article className="rounded-xl border border-border bg-white p-4 shadow-sm sm:p-5">
+    <article className="flex flex-col gap-3.5 rounded-2xl border border-border bg-white px-6 pt-5 pb-[18px] shadow-[0_2px_10px_rgba(120,95,60,0.05)]">
       <header className="flex items-center gap-3">
-        <span className="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-bg-muted text-xl">
-          {avatar}
-        </span>
+        <Avatar value={avatar} className="h-[38px] w-[38px] text-2xl" />
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="truncate font-bold text-ink">{nickname}</span>
+            <span className="truncate text-[15px] font-bold text-ink">
+              {nickname}
+            </span>
             <CategoryBadge category={post.category} />
           </div>
-          <time className="text-xs text-ink-faint">
+          <time className="text-[13px] text-ink-soft">
             {formatRelativeTime(post.created_at)}
           </time>
         </div>
       </header>
 
       {post.body && (
-        <p className="mt-3 whitespace-pre-wrap text-[15px] leading-relaxed text-ink">
+        <p className="text-[15px] leading-[1.85] whitespace-pre-wrap text-ink">
           {post.body}
         </p>
       )}
 
-      <div className="mt-4">
-        <ReactionBar postId={post.id} counts={counts} myEmojis={myEmojis} />
-      </div>
+      <ReactionBar postId={post.id} counts={counts} myEmojis={myEmojis} />
 
-      <div className="mt-4 space-y-2 border-t border-border pt-3">
-        {post.comments.length > 0 && (
-          <ul className="space-y-2">
-            {post.comments.map((c) => (
-              <li key={c.id} className="flex gap-2 text-sm">
-                <span className="flex-none">
-                  {c.profiles?.avatar_emoji ?? "🏠"}
-                </span>
-                <span className="text-ink-soft">
-                  <span className="font-medium text-ink">
+      <div className="h-px bg-[#f0e8dc]" />
+
+      {post.comments_enabled ? (
+        <div className="flex flex-col gap-3">
+          {post.comments.length > 0 && (
+            <ul className="flex flex-col gap-3">
+              {post.comments.map((c) => (
+                <li
+                  key={c.id}
+                  className="flex items-baseline gap-2 text-sm leading-[1.7]"
+                >
+                  <Avatar
+                    value={c.profiles?.avatar_emoji ?? "🏠"}
+                    className="h-5 w-5 self-center text-sm"
+                  />
+                  <span className="flex-none font-bold text-ink">
                     {c.profiles?.nickname ?? "ゲスト"}
-                  </span>{" "}
-                  {c.body}
-                </span>
-              </li>
-            ))}
-          </ul>
-        )}
-
-        {post.comments_enabled ? (
+                  </span>
+                  <span className="text-ink-soft">{c.body}</span>
+                </li>
+              ))}
+            </ul>
+          )}
           <CommentForm postId={post.id} />
-        ) : (
-          <p className="text-xs text-ink-faint">
-            この投稿はコメントを受け付けていません
-          </p>
-        )}
-      </div>
+        </div>
+      ) : (
+        <p className="text-[13px] text-ink-soft">
+          この投稿はコメントを受け付けていません
+        </p>
+      )}
     </article>
   );
 }

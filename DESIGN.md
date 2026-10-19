@@ -1,4 +1,4 @@
-# Design System: しゅふようSNS
+# Design System: Ottsu
 
 ## 1. Visual Theme & Atmosphere
 
@@ -21,28 +21,30 @@
 
 | 名前 | HEX | Role |
 |---|---|---|
-| Terracotta (Primary) | `#E08A3E` | プライマリボタン・アクティブ状態・ブランドアクセント |
-| Terracotta Dark | `#B8681F` | ホバー・強調テキストなど濃色バリエーション |
-| Terracotta Light | `#F2B36B` | サブアクセント、バッジ、アイコンの差し色 |
+| Terracotta (Primary) | `#E08A2A` | プライマリボタン・アクティブ状態・ブランドアクセント |
+| Terracotta Dark | `#B36B12` | リアクション選択時のカウント強調色などの濃色バリエーション |
+| Terracotta Light | `#F2B36B` | サブアクセント、アバター選択状態の差し色 |
+| Link | `#995E35`（ホバー `#80502C`） | 文中リンク（`a`要素の既定色。ボタンやピルには使わない） |
 
 ### Surface & Neutrals
 
 | 名前 | HEX | Role |
 |---|---|---|
-| Background | `#FAF8F4` | ページ基本背景 |
-| Surface Muted | `#F3F0EA` (warm-gray-50) | セクション区切り・カード背景の代替 |
-| Surface Alt | `#E8E4DC` (warm-gray-100) | 入力欄背景・非活性状態 |
-| Border | `#D8D2C6` (warm-gray-200) | カード・入力欄の境界線 |
-| Muted Text BG | `#C2BAA8` (warm-gray-300) | 区切り線・薄いプレースホルダー |
+| Background | `#FAF7F2` | ページ基本背景 |
+| Surface Muted | `#F3EFE9` | カテゴリバッジ・リアクション選択時の背景 |
+| Surface Alt | `#F1E9DD` | 非活性ボタン背景(未入力時の投稿/送信ボタンなど) |
+| Border | `#EDE4D8` | カード・リアクションボタンの境界線 |
+| Border (Input) | `#E7DDD0` | 入力欄・未選択ピル・破線(空状態)の境界線 |
+| Border Muted | `#D4C3A6` | ホバー時・選択時の強調ボーダー |
 | Overlay Black | `#221C14` (custom warm black) | モーダル背景オーバーレイ（`/70` = 70%不透明度で使用）、強い黒テキスト |
 
 ### Text
 
 | 名前 | HEX | Role |
 |---|---|---|
-| Text Primary | `#3D372C` (warm-gray-800) | 本文・見出しの基本色（html既定色） |
-| Text Secondary | `#78715F` (warm-gray-500) | 補助テキスト・キャプション |
-| Text Muted | `#A39C89` (warm-gray-400) | プレースホルダー・非活性テキスト |
+| Text Primary | `#3D342B` | 本文・見出しの基本色（html既定色） |
+| Text Secondary | `#6B6055` | 補助テキスト・キャプション・カテゴリバッジ文字 |
+| Text Muted | `#B9AFA2` | プレースホルダー・非活性テキスト |
 
 ### Accent
 
@@ -62,11 +64,15 @@
 /* メイン（和文） */
 font-family: 'Noto Sans JP', ui-sans-serif, system-ui, sans-serif;
 
+/* ロゴ・見出し（アクセント） */
+font-family: 'Zen Maru Gothic', 'Noto Sans JP', ui-sans-serif, system-ui, sans-serif;
+
 /* コード・数値等（フォールバック） */
 font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 ```
 
-- **Noto Sans JP**（weight: 400 / 500 / 700 / 900）… 和文本文・見出し全般の基本フォント
+- **Noto Sans JP**（weight: 400 / 500 / 700 / 900）… 和文本文全般の基本フォント
+- **Zen Maru Gothic**（weight: 700）… アプリ名ロゴ・カード見出しなど、丸みのある親しみやすさを出したい箇所限定のアクセントフォント（多用しない）
 - **ui-sans-serif system stack** … 英数字・記号のフォールバック、絵文字表示
 
 ### Hierarchy
@@ -175,9 +181,9 @@ transition: opacity .2s ease; /* フェード */
 
 ### ✅ Do
 
-- 背景は白〜薄いグレー基調を維持し、テラコッタ（`#E08A3E`系）はアクションボタンや強調ポイントに限定して使う
+- 背景は白〜薄いグレー基調を維持し、テラコッタ（`#E08A2A`系）はアクションボタンや強調ポイントに限定して使う
 - 有彩色を全体の7%未満にする
-- 本文テキストは `#3D372C` を基本とし、十分なコントラストを確保する
+- 本文テキストは `#3D342B` を基本とし、十分なコントラストを確保する
 - フォームや金額表示はNoto Sans JPの太字（700/900）でメリハリを付ける
 - 角丸・余白ともに「やわらかく実用的」なトーンを崩さない（角丸0〜24px、ピルはCTA/タグ限定）
 - モーダルや強い集中を要する場面のみ、濃紺の黒 `#070719` を70%オーバーレイとして使う
@@ -222,10 +228,11 @@ transition: opacity .2s ease; /* フェード */
 ### Quick Reference
 
 ```text
-背景: #FAF8F4（Surface Muted: #F3F0EA）
-本文: #3D372C / 補助 #78715F / プレースホルダー #A39C89
-ブランドアクセント: #E08A3E（Terracotta） / ホバー #B8681F
-フォント: 'Noto Sans JP', sans-serif
+背景: #FAF7F2（Surface Muted: #F3EFE9）
+本文: #3D342B / 補助 #6B6055 / プレースホルダー #B9AFA2
+ブランドアクセント: #E08A2A（Terracotta） / 濃色 #B36B12
+リンク: #995E35 / ホバー #80502C
+フォント: 本文 'Noto Sans JP' / 見出しアクセント 'Zen Maru Gothic'（700, 限定使用）
 ベースサイズ: 15px〜18px（本文）
 セクション余白: 32px〜48px（PC）/ 16px〜24px（SP）
 カード角丸: .75rem〜1rem
@@ -234,14 +241,14 @@ transition: opacity .2s ease; /* フェード */
 
 ### Component Prompts (例)
 
-- **ボタン作成**: "Primaryボタンを作って。背景 `#E08A3E`、文字 `#FFFFFF`、パディング `.5rem 1.5rem`、角丸 `9999px`、フォント Noto Sans JP、ホバーで背景を `#B8681F` に変化"
-- **カード作成**: "カードを作って。背景 `#FFFFFF`、角丸 `.75rem`、影は控えめなshadow-sm相当、パディング `1.5rem`、ボーダー `1px solid #D8D2C6`"
-- **ヒーロー作成**: "白背景に大きめの太字見出し（900ウェイト、Noto Sans JP）でキャッチコピーを配置し、直下にテラコッタのCTAボタンを1つだけ置くシンプルな構成にする"
+- **ボタン作成**: "Primaryボタンを作って。背景 `#E08A2A`、文字 `#FFFFFF`、パディング `.5rem 1.5rem`、角丸 `9999px`、フォント Noto Sans JP、非活性時は背景 `#F1E9DD` 文字 `#8A7C69`"
+- **カード作成**: "カードを作って。背景 `#FFFFFF`、角丸 `.75rem〜1rem`、影は控えめなshadow-sm相当、パディング `1.5rem`、ボーダー `1px solid #EDE4D8`"
+- **ヒーロー作成**: "白背景に大きめの太字見出し（Zen Maru Gothicの700ウェイト）でキャッチコピーを配置し、直下にテラコッタのCTAボタンを1つだけ置くシンプルな構成にする"
 
 ### Iteration Guide
 
-1. まず背景（白/warm-gray-50）とテキスト（warm-gray-800）のベースコントラストを整える
-2. Terracotta（`#E08A3E`）はCTAボタンやアクティブ状態など「ここを押してほしい」箇所にのみ使う
+1. まず背景（白/Surface Muted）とテキスト（Text Primary）のベースコントラストを整える
+2. Terracotta（`#E08A2A`）はCTAボタンやアクティブ状態など「ここを押してほしい」箇所にのみ使う
 3. 装飾は最小限に。影・角丸・グラデーションを盛りすぎず、フォームと結果表示の可読性を最優先する
 4. レスポンシブ確認時は、コンテナ最大幅とシングルカラム構成が崩れていないかをチェックする
 

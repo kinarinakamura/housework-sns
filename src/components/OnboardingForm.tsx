@@ -5,11 +5,11 @@ export function OnboardingForm() {
   return (
     <div className="mx-auto flex min-h-[80vh] max-w-md flex-col items-center justify-center px-4">
       <div className="w-full text-center">
-        <h1 className="text-3xl font-black tracking-tight text-ink">
-          しゅふよう
+        <h1 className="font-heading text-3xl font-bold tracking-[0.02em] text-ink">
+          Ottsu
         </h1>
         <p className="mt-2 text-ink-soft">
-          かしこまらない、主婦用SNS。
+          かしこまらない、主ふ用SNS。
           <br />
           本名も顔写真もいりません。
         </p>
@@ -29,7 +29,7 @@ export function OnboardingForm() {
             name="nickname"
             maxLength={20}
             placeholder="例: くまこ"
-            className="w-full rounded-lg border border-border bg-white px-3 py-2 text-[15px] text-ink placeholder:text-ink-faint focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand"
+            className="w-full rounded-lg border border-border bg-white px-3 py-2 text-[15px] text-ink transition-colors focus:border-brand focus:outline-none"
           />
         </div>
 
