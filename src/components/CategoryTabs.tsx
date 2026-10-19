@@ -5,7 +5,7 @@ export function CategoryTabs({ active }: { active?: string }) {
   const tabs: string[] = ["全体", ...CATEGORIES];
 
   return (
-    <nav className="flex flex-wrap gap-2">
+    <nav className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
       {tabs.map((tab) => {
         const isActive = (tab === "全体" && !active) || tab === active;
         const href = tab === "全体" ? "/" : `/?category=${encodeURIComponent(tab)}`;
@@ -13,10 +13,10 @@ export function CategoryTabs({ active }: { active?: string }) {
           <Link
             key={tab}
             href={href}
-            className={`rounded-full px-3 py-1.5 text-sm font-medium transition-colors ${
+            className={`flex-none rounded-full px-[18px] py-2 text-sm font-bold whitespace-nowrap no-underline transition-colors hover:no-underline ${
               isActive
-                ? "bg-brand text-white"
-                : "border border-border bg-white text-ink-soft hover:border-border-muted"
+                ? "border border-brand bg-brand/10 text-brand-dark"
+                : "border border-[#e7ddd0] bg-white text-ink-soft hover:border-border-muted"
             }`}
           >
             {tab}

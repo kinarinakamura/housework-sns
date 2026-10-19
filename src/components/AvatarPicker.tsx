@@ -1,3 +1,4 @@
+import { Avatar } from "@/components/Avatar";
 import { AVATAR_EMOJIS } from "@/lib/types";
 
 export function AvatarPicker({
@@ -8,7 +9,7 @@ export function AvatarPicker({
   defaultValue?: string;
 }) {
   return (
-    <div className="grid grid-cols-6 gap-2">
+    <div className="grid grid-cols-5 gap-2">
       {AVATAR_EMOJIS.map((emoji) => (
         <label key={emoji} className="relative block">
           <input
@@ -18,9 +19,10 @@ export function AvatarPicker({
             defaultChecked={emoji === defaultValue}
             className="peer sr-only"
           />
-          <span className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-xl border border-border bg-white text-xl transition-colors peer-checked:border-brand peer-checked:bg-brand-light/30 peer-focus-visible:ring-2 peer-focus-visible:ring-brand">
-            {emoji}
-          </span>
+          <Avatar
+            value={emoji}
+            className="h-11 w-11 cursor-pointer border-2 border-transparent text-3xl transition-colors peer-checked:border-brand peer-focus-visible:ring-2 peer-focus-visible:ring-brand"
+          />
         </label>
       ))}
     </div>

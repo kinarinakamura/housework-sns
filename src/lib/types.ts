@@ -12,19 +12,26 @@ export const REACTIONS = [
 export type ReactionEmoji = (typeof REACTIONS)[number]["emoji"];
 
 export const AVATAR_EMOJIS = [
-  "🏠",
-  "🍀",
-  "🧺",
-  "🍚",
-  "🧹",
-  "🧽",
-  "🐣",
-  "🌷",
-  "🐻",
   "🐱",
-  "🧸",
-  "☕",
+  "🐻",
+  "🐨",
+  "🐰",
+  "🐥",
+  "color:orange",
+  "color:yellow",
+  "color:pink",
+  "color:blue",
+  "color:purple",
 ] as const;
+
+// "color:" 始まりのアバターは絵文字ではなく、このグラデーションで塗りつぶして表示する
+export const AVATAR_COLORS: Record<string, string> = {
+  "color:orange": "linear-gradient(135deg, #e3b790, #c98b5e)",
+  "color:yellow": "linear-gradient(135deg, #e6d4a0, #cdb26b)",
+  "color:pink": "linear-gradient(135deg, #e6bcc3, #c98d99)",
+  "color:blue": "linear-gradient(135deg, #a9bdd0, #7c97b0)",
+  "color:purple": "linear-gradient(135deg, #c3b5d0, #9a88ae)",
+};
 
 export type Profile = {
   id: string;

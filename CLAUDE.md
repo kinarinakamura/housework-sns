@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## プロジェクト概要
 
-しゅふよう — 本名・顔写真・位置情報不要で、ニックネームと絵文字アバターだけで参加できる、かしこまらない匿名家事報告SNS。固定の家事カテゴリで投稿し、いいね/フォロワー数のような競争要素の代わりに「スタンプ」でやさしく反応し合う。日本語アプリのため、UI文言・コードコメントは日本語。
+Ottsu — 本名・顔写真・位置情報不要で、ニックネームと絵文字アバターだけで参加できる、かしこまらない匿名家事報告SNS。固定の家事カテゴリで投稿し、いいね/フォロワー数のような競争要素の代わりに「スタンプ」でやさしく反応し合う。日本語アプリのため、UI文言・コードコメントは日本語。
 
 Next.js 16 (App Router, Server Actions, Tailwind CSS v4) + Supabase (Postgres, Auth, Row Level Security) 構成。現状MVPのスキャフォールド段階(`git log` はコミット1件のみ)。
 

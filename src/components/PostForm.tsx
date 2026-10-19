@@ -9,13 +9,15 @@ export function PostForm() {
   return (
     <form
       action={createPost}
-      className="rounded-xl border border-border bg-white p-4 shadow-sm sm:p-5"
+      className="group flex flex-col gap-4 rounded-2xl border border-border bg-white px-6 pt-[22px] pb-5 shadow-[0_2px_10px_rgba(120,95,60,0.05)]"
     >
-      <h2 className="text-lg font-bold text-ink">{copy.heading}</h2>
+      <h2 className="font-heading text-[17.5px] font-bold text-ink">
+        {copy.heading}
+      </h2>
 
-      <div className="mt-3 flex flex-wrap gap-2">
+      <div className="-mx-6 flex gap-2 overflow-x-auto px-6 pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {CATEGORIES.map((c, i) => (
-          <label key={c} className="relative block">
+          <label key={c} className="relative block flex-none">
             <input
               type="radio"
               name="category"
@@ -23,7 +25,7 @@ export function PostForm() {
               defaultChecked={i === 0}
               className="peer sr-only"
             />
-            <span className="inline-flex cursor-pointer items-center rounded-full border border-border bg-white px-3 py-1 text-sm text-ink-soft transition-colors peer-checked:border-brand peer-checked:bg-brand-light/30 peer-checked:text-brand-dark">
+            <span className="inline-flex cursor-pointer items-center rounded-full border border-[#e7ddd0] bg-white px-[18px] py-2 text-sm font-bold whitespace-nowrap text-ink-soft transition-colors peer-checked:border-brand peer-checked:bg-brand/10 peer-checked:text-brand-dark">
               {c}
             </span>
           </label>
@@ -33,24 +35,25 @@ export function PostForm() {
       <textarea
         name="body"
         maxLength={500}
-        rows={3}
+        rows={4}
         placeholder={copy.placeholder}
-        className="mt-3 w-full resize-none rounded-lg border border-border bg-white px-3 py-2 text-[15px] text-ink placeholder:text-ink-faint focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand"
+        className="w-full resize-y rounded-xl border border-[#e7ddd0] bg-[#fffdfa] px-4 py-3.5 text-[14.5px] leading-[1.75] text-ink transition-colors focus:border-brand focus:outline-none"
       />
 
-      <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
-        <label className="flex items-center gap-2 text-sm text-ink-soft">
+      <div className="flex flex-wrap items-center justify-between gap-4">
+        <label className="flex cursor-pointer items-center gap-2.5 select-none">
           <input
             type="checkbox"
             name="commentsEnabled"
             defaultChecked
-            className="h-4 w-4 rounded border-border text-brand focus:ring-brand"
+            className="peer sr-only"
           />
-          コメントを受け付ける
+          <span className="grid h-[19px] w-[19px] flex-none place-items-center rounded-[5px] border-[1.5px] border-[#d8ccbc] text-xs text-white transition-colors after:content-[''] peer-checked:border-[#b38858] peer-checked:bg-[#b38858] peer-checked:after:content-['✓']" />
+          <span className="text-sm text-ink-soft">コメントを受け付ける</span>
         </label>
         <button
           type="submit"
-          className="rounded-full bg-brand px-5 py-2 text-sm font-bold text-white transition-colors hover:bg-brand-dark"
+          className="rounded-full bg-bg-alt px-[26px] py-[11px] text-sm font-bold text-[#8a7c69] shadow-[0_2px_6px_rgba(150,120,85,0.18)] transition-colors group-has-[input[name=category]:checked]:bg-brand group-has-[input[name=category]:checked]:text-white"
         >
           投稿する
         </button>

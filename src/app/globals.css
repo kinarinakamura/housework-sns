@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #faf8f4;
-  --color-bg-muted: #f3f0ea;
-  --color-bg-alt: #e8e4dc;
-  --color-border: #d8d2c6;
-  --color-border-muted: #c2baa8;
+  --color-bg: #faf7f2;
+  --color-bg-muted: #f3efe9;
+  --color-bg-alt: #f1e9dd;
+  --color-border: #ede4d8;
+  --color-border-muted: #d4c3a6;
   --color-overlay: #221c14;
 
-  --color-ink: #3d372c;
-  --color-ink-soft: #78715f;
-  --color-ink-faint: #a39c89;
+  --color-ink: #3d342b;
+  --color-ink-soft: #6b6055;
+  --color-ink-faint: #b9afa2;
 
-  --color-brand: #e08a3e;
-  --color-brand-dark: #b8681f;
+  --color-brand: #e08a2a;
+  --color-brand-dark: #b36b12;
   --color-brand-light: #f2b36b;
 
   --color-info: #3b82f6;
@@ -21,11 +21,26 @@
   --color-error-bg: #fef2f2;
 
   --font-sans: var(--font-noto-sans-jp), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-zen-maru-gothic), var(--font-sans);
 }
 
 body {
   background: var(--color-bg);
   color: var(--color-ink);
+}
+
+a {
+  color: #995e35;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #80502c;
+  text-decoration: underline;
+}
+
+::placeholder {
+  color: var(--color-ink-faint);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -21,14 +21,22 @@ export function ReactionBar({
               type="submit"
               title={label}
               aria-pressed={active}
-              className={`flex items-center gap-1 rounded-full border px-3 py-1 text-sm transition-colors ${
+              className={`flex items-center gap-1.5 rounded-full border px-[13px] py-1.5 text-[15px] transition-colors ${
                 active
-                  ? "border-brand bg-brand-light/30 text-brand-dark"
-                  : "border-border bg-white text-ink-soft hover:border-border-muted"
+                  ? "border-border-muted bg-bg-muted"
+                  : "border-border bg-white hover:border-border-muted"
               }`}
             >
               <span>{emoji}</span>
-              {count > 0 && <span className="text-xs tabular-nums">{count}</span>}
+              {count > 0 && (
+                <span
+                  className={`text-xs font-bold tabular-nums ${
+                    active ? "text-brand-dark" : "text-ink-soft"
+                  }`}
+                >
+                  {count}
+                </span>
+              )}
             </button>
           </form>
         );
